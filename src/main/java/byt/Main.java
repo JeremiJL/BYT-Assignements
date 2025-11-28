@@ -12,7 +12,7 @@ public class Main {
         dbEngines();
         Thread.sleep(2000);
         System.out.println();
-//        employeesAdapterDemo();
+        employeesAdapterDemo();
         Thread.sleep(2000);
         System.out.println();
 //        observingThings();

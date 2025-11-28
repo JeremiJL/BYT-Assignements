@@ -5,6 +5,8 @@ import byt.adapter.ITarget;
 import byt.factory.DataAnalyticsEngine;
 import byt.factory.DatabaseFactory;
 import byt.factory.DatabaseType;
+import byt.observer.ConcreteObserver;
+import byt.observer.Subject;
 
 public class Main {
 
@@ -15,7 +17,7 @@ public class Main {
         employeesAdapterDemo();
         Thread.sleep(2000);
         System.out.println();
-//        observingThings();
+        observingThings();
     }
 
     public static void dbEngines() {
@@ -44,29 +46,29 @@ public class Main {
         target.processCompanySallary(employeesArray);
     }
 
-//    public static void observingThings() throws InterruptedException {
-//        Subject RedMI = new Subject("Red MI Mobile", 10000, "Out Of Stock");
-//
-//        ConcreteObserver user1 = new ConcreteObserver("Anurag");
-//        user1.addSubscriber(RedMI);
-//
-//        ConcreteObserver user2 = new ConcreteObserver("Pranaya");
-//        user2.addSubscriber(RedMI);
-//
-//        ConcreteObserver user3 = new ConcreteObserver("Priyanka");
-//        user3.addSubscriber(RedMI);
-//
-//        Thread.sleep(1000);
-//
-//        System.out.println("Red MI Mobile current state : " + RedMI.getAvailability());
-//        System.out.println();
-//
-//        Thread.sleep(1000);
-//
-//        user3.removeSubscriber(RedMI);
-//
-//        Thread.sleep(1000);
-//        RedMI.setAvailability("Available");
-//    }
+    public static void observingThings() throws InterruptedException {
+        Subject RedMI = new Subject("Red MI Mobile", 10000, "Out Of Stock");
+
+        ConcreteObserver user1 = new ConcreteObserver("Anurag");
+        user1.addSubscriber(RedMI);
+
+        ConcreteObserver user2 = new ConcreteObserver("Pranaya");
+        user2.addSubscriber(RedMI);
+
+        ConcreteObserver user3 = new ConcreteObserver("Priyanka");
+        user3.addSubscriber(RedMI);
+
+        Thread.sleep(1000);
+
+        System.out.println("Red MI Mobile current state : " + RedMI.getAvailability());
+        System.out.println();
+
+        Thread.sleep(1000);
+
+        user3.removeSubscriber(RedMI);
+
+        Thread.sleep(1000);
+        RedMI.setAvailability("Available");
+    }
 
 }
